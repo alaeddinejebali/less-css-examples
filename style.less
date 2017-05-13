@@ -1,0 +1,46 @@
+@mainWidth: 200px;
+@mainHeight: 100px;
+
+.generateRandomColor(){
+	@randomColor: `Math.floor(Math.random()*16777215).toString(16)`;
+	@colorHex: e(@randomColor);
+	@getRandomColor: ~"#@{colorHex}";
+}
+
+.setElement1BackgroundColor(){
+	.generateRandomColor();
+	background-color: @getRandomColor;
+}
+.setElement2BackgroundColor(){
+	.generateRandomColor();
+	background-color: @getRandomColor;
+}
+.setElement3BackgroundColor(){
+	.generateRandomColor();
+	background-color: @getRandomColor;
+}
+
+#element1{
+	width: @mainWidth;
+	height: @mainHeight;
+	.setElement1BackgroundColor();
+    line-height: @mainHeight;
+}
+#element2{
+	width: 3 * @mainWidth;
+	height: 1.5 * @mainHeight;
+	.setElement2BackgroundColor();
+    line-height: 1.5 * @mainHeight;
+}
+#element3{
+	width: @mainWidth/2;
+	height: @mainHeight - 50;
+	.setElement3BackgroundColor();
+    line-height: @mainHeight - 50;
+}
+
+.elements{
+	font-size: 20px;
+	float: left;
+    text-align: center;
+}
